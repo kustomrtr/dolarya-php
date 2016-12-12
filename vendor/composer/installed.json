@@ -1,0 +1,53 @@
+[
+    {
+        "name": "ivkos/pushbullet",
+        "version": "3.3.0",
+        "version_normalized": "3.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ivkos/Pushbullet-for-PHP.git",
+            "reference": "3de4a1732d14e8303a836a0a86a44e280e9cbee2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ivkos/Pushbullet-for-PHP/zipball/3de4a1732d14e8303a836a0a86a44e280e9cbee2",
+            "reference": "3de4a1732d14e8303a836a0a86a44e280e9cbee2",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "php": ">= 5.4.0"
+        },
+        "time": "2016-05-22 12:42:15",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Pushbullet\\": "src/Pushbullet"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ivaylo Stoyanov",
+                "email": "me@ivkos.com",
+                "homepage": "https://github.com/ivkos"
+            }
+        ],
+        "description": "Push notifications to devices and browsers via Pushbullet",
+        "homepage": "https://github.com/ivkos/Pushbullet-for-PHP",
+        "keywords": [
+            "android",
+            "chrome",
+            "firefox",
+            "iphone",
+            "notifications",
+            "push",
+            "pushbullet",
+            "windows"
+        ]
+    }
+]
