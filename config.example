@@ -1,0 +1,4 @@
+<?php
+$api_key = 'API KEY GOES HERE';
+$url = 'API URL GOES HERE';
+?>

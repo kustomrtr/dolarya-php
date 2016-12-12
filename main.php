@@ -1,9 +1,8 @@
 <?php
 require 'vendor/autoload.php';
-include 'src/chromephp/ChromePhp.php';
+require 'config.php';
+//include 'src/chromephp/ChromePhp.php';
 
-$api_key = 'API KEY';
-$url = 'JSON URL';
 $pb = new Pushbullet\Pushbullet($api_key);
 
 Pushbullet\Connection::setCurlCallback(function ($curl) {
@@ -16,23 +15,23 @@ $filename = "dolar.txt";
 $dolarhoy = $valorBs . " Bs.";
 $cambio = false;
 
-$dolarfile = fopen($filename, "r");
-while (!feof($dolarfile)) {
-  $line_of_text = fgets($dolarfile);
-  if($dolarhoy == $line_of_text) {
-    echo 'El valor es el mismo ' . $dolarhoy;
-    ChromePhp::log('Hello console!');
-  } else {
-    echo 'El valor es diferente ' . $dolarhoy;
-    $cambio = true;
-  }
+try {
+  $dolarfile = fopen($filename, "r") or die("Unable to open file!");
+    if($dolarhoy == fgets($dolarfile) ) {
+      echo 'El valor es el mismo ' . $dolarhoy;
+      //ChromePhp::log('Hello console!');
+    } else {
+      echo 'El valor es diferente ' . $dolarhoy;
+      $cambio = true;
+    }
+} catch(Exception $e) {
+  echo 'Error ' . $e;
 }
-fclose($dolarfile);
 
 if($cambio) {
   try {
     $pb->allDevices()->pushNote($dolarhoy, "Nuevo valor del dolar: " . $dolarhoy);
-    ChromePhp::log('Push sent.');
+    //ChromePhp::log('Push sent.');
     $dolarfile = fopen($filename, "w") or die("Error al abrir el archivo!");
     fwrite($dolarfile, $dolarhoy);
     fclose($dolarfile);
