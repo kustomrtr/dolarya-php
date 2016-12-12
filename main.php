@@ -11,7 +11,7 @@ Pushbullet\Connection::setCurlCallback(function ($curl) {
 
 $json = json_decode(str_replace("var dolartoday = \n", "", file_get_contents($url)));
 $valorBs = $json->{"USD"}->{"transferencia"};
-$filename = "dolar.txt";
+$filename = dirname(__FILE__) . "/dolar.txt";
 $dolarhoy = $valorBs . " Bs.";
 $cambio = false;
 
